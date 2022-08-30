@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <title>Users</title>
+</head>
+<body>
+<div th:switch="${spaces}">
+    <h2 th:case="null">No parking places found!</h2>
+    <div th:case="*">
+        <h2>Parking places</h2>
+        <table>
+            <thead>
+            <tr>
+                <th>Id</th>
+                <th>Square</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr th:each="space : ${spaces}">
+                <td th:text="${space.ParkingSpaceId}"></td>
+                <td th:text="${space.square}"></td>
+<!--                <td><a th:href="@{client-update/{clientId}(clientId=${client.clientId })}">Редактировать</a></td>-->
+                <td><a th:href="@{space-delete/{ParkingSpaceId}(ParkingSpaceId=${space.ParkingSpaceId })}">Удалить</a></td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+    <p><a href="/parking/space-create">Создать парковочное место</a></p>
+    <p><a href="/parking/contracts">Перейти к датам аренды</a> </p>
+    <p><a href="/parking/clients">Перейти к списку клиентов</a>
+</div>
+</body>
+</html>

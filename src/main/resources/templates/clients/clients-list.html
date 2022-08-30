@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <title>Users</title>
+</head>
+<body>
+<div th:switch="${clients}">
+    <h2 th:case="null">No users found!</h2>
+    <div th:case="*">
+        <h2>Users</h2>
+        <table>
+            <thead>
+            <tr>
+                <th>Id</th>
+                <th>Name</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr th:each="client : ${clients}">
+                <td th:text="${client.clientId}"></td>
+                <td th:text="${client.clientName}"></td>
+                <td><a th:href="@{client-update/{clientId}(clientId=${client.clientId })}">Редактировать</a></td>
+                <td><a th:href="@{client-delete/{clientId}(clientId=${client.clientId })}">Удалить</a></td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+    <p><a href="/parking/client-create">Создать пользователя</a></p>
+    <p><a href="/parking/contracts">Перейти к датам аренды</a> </p>
+    <p><a href="/parking/spaces">Перейти к списку парковочных мест</a></p>
+</div>
+</body>
+</html>

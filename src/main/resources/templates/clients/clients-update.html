@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<meta charset="UTF-8">
+<title>Create user</title>
+</head>
+<body>
+<form action="#" th:action="@{/parking/client-update}" th:object="${client}" method="post">
+    <label for="clientId">ID</label>
+    <input readonly type="number" th:field="*{clientId}" id="clientId" placeholder="Client id">
+    <br/>
+    <label for="clientName">Client Name</label>
+    <input type="text" th:field="*{clientName}" id="clientName" placeholder="Client Name">
+    <br/>
+    <label for="carNumber">Car Number</label>
+    <input type="text" th:field="*{carNumber}" id="carNumber" placeholder="Car Number">
+    <br/>
+    <label for="carMark">Car Mark</label>
+    <input type="text" th:field="*{carMark}" id="carMark" placeholder="Car Mark">
+    <br/>
+    <input type="submit" value="Update User">
+</form>
+</body>
+</html>

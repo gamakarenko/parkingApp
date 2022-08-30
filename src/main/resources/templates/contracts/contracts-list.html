@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <title>Contracts</title>
+</head>
+<body>
+<div th:switch="${contracts}">
+    <h2 th:case="null">No contracts found!</h2>
+    <div th:case="*">
+        <h2>Contracts</h2>
+        <table>
+            <thead>
+            <tr>
+                <th>Id</th>
+                <th>Start Date</th>
+                <th>End Date</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr th:each="contract : ${contracts}">
+                <td th:text="${contract.contractId}"></td>
+                <td th:text="${contract.startDate}"></td>
+                <td th:text="${contract.endDate}"></td>
+              <td><a th:href="@{contract-delete/{contractId}(contractId=${contract.contractId })}">Удалить</a></td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+    <p><a href="/parking/contract-create">Создать контракт</a> </p>
+    <p></p><a href="/parking/clients">Перейти к списку клиентов</a></p>
+    <p><a href="/parking/spaces">Перейти к списку парковочных мест</a></p>
+</div>
+</body>
+</html>

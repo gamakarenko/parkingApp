@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <title>Create client</title>
+</head>
+<body>
+<form action="#" th:action="@{/parking/contract-create}" th:object="${contract}" method="post">
+    <label for="startDate">Start Date</label>
+    <input type="date" th:field = "*{startDate}" id="startDate" placeholder="Start Date">
+    <label for="endDate">End Date</label>
+    <input type="date" th:field = "*{endDate}" id="endDate" placeholder="End Date">
+    <label for="clientId">Client Id</label>
+    <input type="text" th:field = "*{clientId}" id="clientId" placeholder="Client Id">
+    <input type="submit" value="Create contract">
+</form>
+</body>
+</html>

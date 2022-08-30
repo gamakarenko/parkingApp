@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <title>Create Parking space</title>
+</head>
+<body>
+<form action="#" th:action="@{/parking/space-create}" th:object="${parkingSpace}" method="post">
+    <label for="square">Square</label>
+    <input type="square" th:field = "*{square}" id="square" placeholder="Square">
+    <label for="contract">Contract Id</label>
+    <input type="text" th:field = "*{contract}" id="contract" placeholder="Contract Id">
+    <input type="submit" value="Create parking space">
+</form>
+</body>
+</html>

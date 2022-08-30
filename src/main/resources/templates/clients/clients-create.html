@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <title>Create client</title>
+</head>
+<body>
+<form action="#" th:action="@{/parking/client-create}" th:object="${client}" method="post">
+    <label for="clientName">Client name</label>
+    <input type="text" th:field = "*{clientName}" id="clientName" placeholder="Client name">
+    <label for="carNumber">Car Number</label>
+    <input type="text" th:field = "*{carNumber}" id="carNumber" placeholder="Car Number">
+    <label for="carMark">Car Mark</label>
+    <input type="text" th:field = "*{carMark}" id="carMark" placeholder="Car Mark">
+    <input type="submit" value="Create client">
+</form>
+</body>
+</html>
